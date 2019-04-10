@@ -135,7 +135,7 @@ public class Vt4main {
        
    }
     
-   public static void tulosta(InsuranceInfo p){
-      System.out.println(p);
+   public static void tulosta(InsuranceInfo i){
+      System.out.println(i);
    }
 }

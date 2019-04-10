@@ -30,7 +30,7 @@ public class Property{
         return sijaintipaikka;
     }
     
-    public String ToString(){
-        return "Kiinteiston tyyppi:" + kiinteiston_tyyppi + "Sijaintipaikka:" + sijaintipaikka;
+    public String toString(){
+        return "Kiinteiston tyyppi: " + kiinteiston_tyyppi + ", Sijaintipaikka: " + sijaintipaikka;
     }
 }

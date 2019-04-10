@@ -32,4 +32,8 @@ public class InsuranceInfo{
     public void tulosta(){
    
     }
+
+    public String toString(){
+        return kiinteisto + ", Vakuutusarvo: " + vakuutusarvo;
+    }
 }
