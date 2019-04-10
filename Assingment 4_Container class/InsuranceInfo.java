@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class InsuranceInfo{
     
     private Property kiinteisto;
@@ -25,5 +27,9 @@ public class InsuranceInfo{
     
     public double getVakuutusarvo(){
         return vakuutusarvo;
+    }
+
+    public void tulosta(){
+   
     }
 }

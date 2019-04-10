@@ -3,17 +3,31 @@ import java.util.Iterator;
 
 public class InsInfoContainer{
     
-    private ArrayList <InsuranceInfo> sailio;
+    private ArrayList <InsuranceInfo> sailio = new ArrayList<InsuranceInfo>(5);
     
     //konstruktori
-    public InsInfoContainer(){
+    //public InsInfoContainer(){
         
-        sailio = new ArrayList<InsuranceInfo>(5);       
-    }
+        //sailio = new ArrayList<InsuranceInfo>(5);
+        
+        private static InsInfoContainer c = null;
+   
+        private InsInfoContainer(){
+            
+        }
+        
+        public static InsInfoContainer getInstance(){
+            
+            if( c == null)
+                c = new InsInfoContainer();
+                
+            return c;
+        }    
+    //}
     
     //metodi: lisaa vakuutustieto-olio sailioon
-    public void addInsuranceInfo(InsuranceInfo p){
-        sailio.add(p);
+    public void addInsuranceInfo(InsuranceInfo i){
+        sailio.add(i);
     }
     
     //metodi: tulostaa koko sailion
@@ -21,7 +35,7 @@ public class InsInfoContainer{
 	   
         Iterator<InsuranceInfo> iter = sailio.iterator();
       
-        while( iter.hasNext()){
+        while(iter.hasNext()){
             System.out.println(iter.next());
         }
     }        
@@ -32,13 +46,26 @@ public class InsInfoContainer{
         Iterator<InsuranceInfo> iter = sailio.iterator();
       
         while( iter.hasNext()){
-           InsuranceInfo p = (InsuranceInfo)iter.next();
-            if (p.getVakuutusarvo() > arvo){
-                System.out.println(p);
+           InsuranceInfo i = (InsuranceInfo)iter.next();
+            if (i.getVakuutusarvo() > arvo){
+                System.out.println(i);
             } else {
                 
             }
         }
     }
     //metodi: tulostaa kiinteiston, jonka vakuutusarvo rajaa pienempi
+    public void tulosta_iso(double arvo){
+	   
+        Iterator<InsuranceInfo> iter = sailio.iterator();
+      
+        while( iter.hasNext()){
+           InsuranceInfo i = (InsuranceInfo)iter.next();
+            if (i.getVakuutusarvo() < arvo){
+                System.out.println(i);
+            } else {
+                
+            }
+        }
+    }
 }
