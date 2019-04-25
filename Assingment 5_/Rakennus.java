@@ -1,24 +1,22 @@
-public class Rakennus {
+class Rakennus {
 
     //muuttujat
-
-    private float asuntojen_lkm;
-    private AsuntoInfo asunnon_tiedot;
+    private double pinta_ala;
+    private float huoneiden_lkm;
+    private Asukas ihminen = null;
 
     //tilanne ennen kuin talo on rakennettu
     public Rakennus(){
-        asunnon_tiedot = null;
-        asuntojen_lkm = 0;
+        pinta_ala = 0.0;
+        huoneiden_lkm = 0;
+        ihminen = null;
     }
     
     //muodostin
-    public Rakennus(float asuntojen_lkm_par, AsuntoInfo asunnon_tiedot_par){
-        asunnon_tiedot = asunnon_tiedot_par;
-        asuntojen_lkm = asuntojen_lkm_par;
-    }
-
-    public Rakennus getRakennus(Rakennus r){
-        return new Rakennus(asuntojen_lkm, asunnon_tiedot);
+    public Rakennus(double pinta_ala_par, float huoneiden_lkm_par){
+        pinta_ala = pinta_ala_par;
+        huoneiden_lkm = huoneiden_lkm_par;
+        ihminen = null;
     }
 
     public Rakennus(Rakennus r){
@@ -26,14 +24,48 @@ public class Rakennus {
     }
 
     //asetusmetodit
-    public void setAsuntojen_lkm(float asuntojen_lkm_par){
-        asuntojen_lkm = asuntojen_lkm_par;
+    public boolean setAsukas(Asukas ihminen){
+        if(ihminen == null ){
+            ihminen = ihminen;
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public void setPinta_ala(double pinta_ala_par){
+        pinta_ala = pinta_ala_par;
+    }
+
+    public void setHuoneiden_lkm(float huoneiden_lkm_par){
+        huoneiden_lkm = huoneiden_lkm_par;
     }
 
     //saantimetodit
-    public float getAsuntojen_lkm(){
-        return asuntojen_lkm;
+    public double getPinta_ala(){
+        return pinta_ala;
     }
 
+    public float getHuoneiden_lkm(){
+        return huoneiden_lkm;
+    }
 
+    public Rakennus getRakennus(Rakennus r){
+        return new Rakennus();
+    }
+
+    public Asukas getAsukas(){
+        return new Asukas(ihminen);
+    }
+
+    public void tulosta(){
+
+    }   
+
+    public String toString(){
+        if(ihminen != null ) //jos talossa on asukas, tulosta...
+            return ("Rakennuksen pinta-ala on " + pinta_ala + " ja huoneiden lukumaara on " + huoneiden_lkm + "\nTalossa asuu: " + ihminen.toString());
+        else //jos talossa ei ole asukasta, tulosta...
+            return ("Rakennuksen pinta-ala on " + pinta_ala + " ja huoneiden lukumaara on " + huoneiden_lkm + "\nRakennus on asumaton");
+    }
 }

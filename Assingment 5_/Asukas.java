@@ -33,4 +33,7 @@ public class Asukas {
     public String toString(){
         return "Talossa asuu " + nimi;
     }
+    public void tulosta(){
+        System.out.println("Talossa asuu " + nimi);
+    }
 }

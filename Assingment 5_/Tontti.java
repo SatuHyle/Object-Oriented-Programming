@@ -1,23 +1,23 @@
-public class Tontti {
+class Tontti {
 
     //muuttujat
     private String nimi;
-    private String osoite;
+    private String sijainti;
     private double pinta_ala;
     private Rakennus rakennus;
 
     //tilanne ennen kuin tonttia on luotu
     public Tontti(){
         nimi = " ";
-        osoite = " ";
+        sijainti = " ";
         pinta_ala = 0.0;
         rakennus = null;
     }
 
     //muodostin
-    public Tontti(String nimi_par, String osoite_par, final double pinta_ala_par){
+    public Tontti(String nimi_par, String sijainti_par, final double pinta_ala_par){
         nimi = nimi_par;
-        osoite = osoite_par;
+        sijainti = sijainti_par;
         pinta_ala = pinta_ala_par;
         rakennus = null;
     }
@@ -27,7 +27,7 @@ public class Tontti {
     }
 
     public Rakennus getRakennusTontilta(){
-        return new Rakennus();
+        return new Rakennus(); //
     }
 
     public boolean setAsukasRakennukseen(Asukas ihminen ){
@@ -38,10 +38,14 @@ public class Tontti {
         return rakennus.getAsukas();
     }
 
+    public void tulosta(){
+        System.out.println("\nTontin nimi: " + nimi + ", sijainti: " + sijainti + ", pinta-ala: " + pinta_ala);
+    }
+
     public String toString(){
         if(rakennus != null ) //jos tontilla on rakennus, tulosta...
-            return ("\nTontin nimi: " + nimi + ", osoite: " + osoite + ", pinta-ala: " + pinta_ala + rakennus.toString());
+            return ("\nTontin nimi: " + nimi + ", sijainti: " + sijainti + ", pinta-ala: " + pinta_ala + rakennus.toString());
         else //jos tontilla ei ole rakennusta, tulosta...
-            return ("\nTontin nimi: " + nimi + ", osoite: " + osoite + ", pinta-ala: " + pinta_ala + "\nTontilla ei ole rakennusta");
+            return ("\nTontin nimi: " + nimi + ", sijainti: " + sijainti + ", pinta-ala: " + pinta_ala + "\nTontilla ei ole rakennusta");
    }
 }
