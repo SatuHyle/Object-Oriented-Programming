@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Hirsipuu{
     private String sana;
@@ -19,7 +20,7 @@ public class Hirsipuu{
 		List<String> annaSanat = sanalista.annaSanat();
 		sana = annaSanat.get(random.nextInt(annaSanat.size()));
 		aukaistut_kirjaimet = new char[sana.length()];
-		
+       arvatut_kirjaimet = new ArrayList<>();
 		for(int i = 0; i < sana.length(); i++){
 			if(sana.charAt(i) == '-'){
 				aukaistut_kirjaimet[i] = '-';
@@ -32,9 +33,18 @@ public class Hirsipuu{
     //metodit
     public boolean arvaa(Character merkki){
 		boolean onnistui = false;
+       
+       if( sana.contains(merkki.toString()))
+          arvatut_kirjaimet.add(merkki);
+       
+       System.out.println("ARVATTAVA ON :" + sana);
 		for(int i = 0; i < aukaistut_kirjaimet.length; i++){
 			if(sana.charAt(i) == (char)Character.toLowerCase(merkki)){
 				aukaistut_kirjaimet[i] = merkki;
+            
+            
+            
+            System.out.println("AUKAISTUT KIRJAIMET: " +new String(aukaistut_kirjaimet));
 				onnistui = true;
 			}
 		}

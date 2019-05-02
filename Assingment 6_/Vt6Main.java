@@ -24,10 +24,18 @@ public class Vt6Main{
                 case 1:
                     System.out.print("Anna haluamasi kirjain: ");
                     kirjain = lueKirjain();
-                    hirsipuu.arvaa(kirjain);
-                    //tulosta, mita on arvattu
-                    //tulosta, monta arvausta on jaljella
-                    //metodi, onLoppu
+                  if(hirsipuu.arvaa(kirjain)){
+                    System.out.println("ARVAUKSET: "  + hirsipuu.arvaukset().toString());
+                    System.out.println("OIKEIN");
+                    if( hirsipuu.onLoppu()){
+                        System.out.println("VOITIT");
+                        
+                    }
+                     
+                }else {
+                    System.out.println("VAARIN");
+                    System.out.println("ARVAUKSIA JALJELLA: " + hirsipuu.arvauksiaOnJaljella());
+                }
                     break;
 
                 case 0:
@@ -38,11 +46,10 @@ public class Vt6Main{
                     System.out.print("Vaara valinta. Yrita uudelleen.");
             }
              
-        }while ( valinta != 0);
+        }while ( valinta != 0 && !hirsipuu.onLoppu());
     }
 
     public static void tulostaValikko() {
-        System.out.println("Arvauksia on jaljella");
         System.out.println("\n\n 1) Arvaa uusi kirjain");
         System.out.println(" 0) Lopeta peli");
         System.out.print("\nValintasi > ");
